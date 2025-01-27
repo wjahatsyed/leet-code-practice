@@ -1,39 +1,24 @@
-public class GCDOfStrings {
-    /*
-    String1 = "ABCABC"
-    String2 = "ABC"
-    Output; ABC
-
-    Input: str1 = "ABABAB", str2 = "ABAB"
-    Output: "AB"
-
-    Input: str1 = "LEET", str2 = "CODE"
-    Output:
-     */
+class GCDOfStrings {
     public static String gcdOfStrings(String str1, String str2) {
-        String answer = "";
-        if (str1.length() > str2.length()) {
-            String tempString = str1.substring(0, str2.length());
-            if (str2.equals(tempString)) {
-                String tempString2 = str1.substring(tempString.length());
-                int tempLength_2 = tempString2.length();
-                if (tempString2.equals(str2.substring(0, tempLength_2))) {
-                    answer = tempString2;
-                }
-            }
-        } else {
-            if (str1.equals(str2)) {
-                answer = str2;
-            }
+        if (!(str1 + str2).equals(str2 + str1)) {
+            return "";
         }
-        return answer;
+
+        int lenGCD = gcd(str1.length(), str2.length());
+        return str1.substring(0, lenGCD);
     }
 
-    public static void main(String[] args) {
-        /*
-        Input: str1 = "ABCABC", str2 = "ABC"
-        Output: "AB"
-         */
-        System.out.println(gcdOfStrings("ABCABC", "ABC"));
+    private static int gcd(int len1, int len2) {
+        while (len2 != 0) {
+            int temp = len1 % len2;
+            len1 = len2;
+            len2 = temp;
+        }
+        return len1;
+    }
+
+    public static void main(String[] args){
+        System.out.println(
+        gcdOfStrings("ABCABC", "ABCABCABCABC"));
     }
 }

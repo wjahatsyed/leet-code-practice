@@ -1,3 +1,5 @@
+package ArraysAndStrings;
+
 public class MergeStringAlternatively {
     public static String mergeAlternately(String word1, String word2) {
        /*

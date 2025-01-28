@@ -1,3 +1,5 @@
+package ArraysAndStrings;
+
 public class CanPlaceFlowers {
     public static void main(String[] args){
         CanPlaceFlowers canPlaceFlowers = new CanPlaceFlowers();
